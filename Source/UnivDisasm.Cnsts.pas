@@ -82,6 +82,9 @@ const
   AM_32 = 2; // Address mode 32-bits.
   AM_64 = 3; // Address mode 64-bits.
 
+  { Options }
+  GO_TEST_ADDRESS = $01;
+
   { Instruction flags }
   GF_TABLE_MASK = $FF;
   GF_GROUP_MASK = $1F00;
@@ -140,8 +143,6 @@ const
   GF_GROUP_XOP3 = $18 shl 8;
   GF_GROUP_XOP4 = $19 shl 8;
   GF_IMM_EXT = $2000; // An immediate exists and serves as an opcode extension.
-
-const
 
   INST_GRP_AVX_MASK = $800;
   INST_GRP_AVX512_MASK = INST_GRP_AVX_MASK or $1000;
@@ -394,6 +395,9 @@ const
   MAX_INST_STR_LENGTH = 128;
 
   { Internal constants used by UnivDisasm }
+  SP_DISP8_VE = $01;
+  SP_DISP8_VE_32 = SP_DISP8_VE or $02;
+  SP_DISP8_VE_64 = SP_DISP8_VE or $04;
   MagicRexMask = $80;
   PM64 = CPUX64; // Only for x64.
   I64 = CPUX32; // Invalid when PM64.
